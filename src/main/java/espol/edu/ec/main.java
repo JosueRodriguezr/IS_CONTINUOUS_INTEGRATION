@@ -45,7 +45,6 @@ class Main {
 
         System.out.println("Welcome to the Library Book Checkout System!");
 
-        // Book Selection and Checkout
         System.out.println("\n1. Book Selection and Checkout");
         library.displayCatalog();
         ArrayList<Book> selectedBooks = new ArrayList<>();
@@ -84,20 +83,16 @@ class Main {
                 System.out.println("Book not found. Please enter a valid title.");
             }
 
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
         }
 
-        // Quantity Validation
         System.out.println("\n2. Quantity Validation");
-        // No additional logic needed as the validation is performed during book selection
-
-        // Due Date Calculation
+      
         System.out.println("\n3. Due Date Calculation");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date currentDate = new Date();
         Date dueDate = new Date(currentDate.getTime() + (14 * 24 * 60 * 60 * 1000));
 
-        // Late Fee Calculation
         System.out.println("\n4. Late Fee Calculation");
         double lateFeeRate = 1.0;
         double totalLateFees = 0;
@@ -108,7 +103,6 @@ class Main {
             totalLateFees += lateFee;
         }
 
-        // Book Availability
         System.out.println("\n5. Book Availability");
         for (Book book : selectedBooks) {
             if (!book.available) {
@@ -117,7 +111,6 @@ class Main {
             }
         }
 
-        // Maximum Books per Checkout
         System.out.println("\n6. Maximum Books per Checkout");
         int maxBooksPerCheckout = 10;
 
@@ -126,7 +119,6 @@ class Main {
             System.exit(-1);
         }
 
-        // User Confirmation
         System.out.println("\n7. User Confirmation");
         System.out.println("Selected Books:");
         for (Book book : selectedBooks) {
@@ -143,19 +135,12 @@ class Main {
             System.exit(-1);
         }
 
-        // Return Process
         System.out.println("\n8. Return Process");
-        // TODO: Implement return process logic
-
-        // Output
         System.out.println("\n9. Output");
         System.out.println("Checkout successful!");
         System.out.println("Due Date: " + dateFormat.format(dueDate));
         System.out.println("Total Late Fees: $" + totalLateFees);
-
-        // Error Handling
         System.out.println("\n10. Error Handling");
-        // No additional error handling needed as it is incorporated throughout the code
 
         scanner.close();
     }
